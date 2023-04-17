@@ -36,15 +36,19 @@ $connect->set_charset("utf8");
 
 //код запроса
 $sql = "SELECT * FROM `students`";
-
+$sqlg = "SELECT * FROM `groups`";
 //выполнить запрос
 $result = $connect->query($sql);
+$resultg = $connect->query($sqlg);
 
 //вести результаты запроса на страницу
 while ($row = $result->fetch_assoc()){
     echo "<div>
             $row[lname], $row[fname], $row[gender], $row[age]
         </div>";
+}
+while ($row = $resultg->fetch_assoc()){
+    echo "<div>$row[title]</div>";
 }
 
 
