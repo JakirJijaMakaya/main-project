@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Клиент-серверное приложение</title>
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -18,6 +19,9 @@
     <label for="m">женский</label>
     <input type="submit" value="добавить">
 </form>
+<div class="content">
+
+
 <?php
 
 require_once("config.php");
@@ -48,6 +52,11 @@ while ($row = $result->fetch_assoc()){
 
 
 ?>
-    
+</div>
+ <div class="block"></div>   
+
+ <div class="message">
+    scas
+ </div>
 </body>
 </html>
