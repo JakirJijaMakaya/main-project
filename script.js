@@ -29,3 +29,33 @@ formInsert.addEventListener("submit", (event)=>{
         }
     };
 });
+// отправка данных без формы - метод
+// лайки у студентов
+const btnsLike = document.querySelectorAll(".like");
+
+function setLike(str1, str2){
+return function(event){
+    let idStudent = event.target.closest(".student").dataset.id;
+    console.log(idStudent);
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","api/setLike.php?id=" + idStudent);
+    xhr.onload = function() {
+        if(xhr.response=="ok"){
+            let num = +event.target.closest(".student").querySelector(".num-like").innerHTML;
+
+            event.target.closest(".student").querySelector(".num-like").innerHTML = num + 1;
+            console.log(str1);
+        }
+        else{
+            console.log(str2);
+        }
+    }
+    xhr.send();
+}
+}
+
+
+for(btn of btnsLike) {
+    btn.addEventListener("click", setLike("успешно","ошибка"));
+}
