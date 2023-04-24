@@ -24,7 +24,7 @@
 
 <?php
 
-require_once("config.php");
+require_once("api/config.php");
 
 //соединение с БД
 $connect = new mysqli(HOST, USER, PASSWORD, DB);

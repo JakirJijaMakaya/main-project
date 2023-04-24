@@ -5,7 +5,7 @@ $age = $_POST['age'];
 $gender = $_POST['gender'];
 $title = $_POST['groups'];
 
-require_once ("config.php");
+require_once ("api/config.php");
 //соединение с БД
 $connect = new mysqli(HOST, USER, PASSWORD, DB);
 if($connect->connect_error){
