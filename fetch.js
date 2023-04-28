@@ -14,7 +14,7 @@ async function auth(event){
     json = await response.json();
             console.log(json);
             if(json.status){
-                output.innerHTML = "вы арестованны" + json.name;
+                output.innerHTML = "вы арестованны" + json.name + "<a href='profile.php'>профиль</a>";
                 formAuth.style.display = "none";
             }
             else {
