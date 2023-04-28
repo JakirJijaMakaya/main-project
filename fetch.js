@@ -3,20 +3,18 @@ const output = document.querySelector(".profile")
 
 formAuth.addEventListener("submit", auth);
 
-function auth(event){
+async function auth(event){
     event.preventDefault();
     let data = new FormData(formAuth);
-    fetch("api/auth.php",{
+    const response = await fetch("api/auth.php",{
         method: 'POST',
+        'Content-Type' : 'application/json',
         body: data
-    }).then(
-        (response)=>{
-        return response.text();
-    }
-    ).then(
-        (text) =>{
-            if(text){
-                output.innerHTML = "вы арестованны"
+    });
+    json = await response.json();
+            console.log(json);
+            if(json.status){
+                output.innerHTML = "вы арестованны" + json.name;
                 formAuth.style.display = "none";
             }
             else {
@@ -26,5 +24,3 @@ function auth(event){
             }
         }
          
-    )
-}
