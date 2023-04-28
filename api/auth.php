@@ -19,8 +19,8 @@ $result->bind_param("ss", $login, $password);
 $result->execute();
 $result = $result->get_result();
 if($row = $result->fetch_assoc()){
-    echo "вы аристованы!";
+    echo true;
 }
 else {
-    echo "не правда!";
+    echo false;
 }
